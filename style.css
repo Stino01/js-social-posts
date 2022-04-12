@@ -45,10 +45,12 @@ h1 {
 }
 
 .post-meta__icon {
-    margin-right: 24px;
+    width: 10%;
+    position: relative;
 }
 
 .post-meta__data {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,4 +124,14 @@ h1 {
 .like-button--liked {
     color: #0CD977;
     cursor: default;
+}
+
+.error-image {
+    background-color: rosybrown;
+    border-radius: 50%;
+    padding: 10px 13px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
