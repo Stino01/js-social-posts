@@ -119,3 +119,15 @@ function createBox(indice) {
 
 printBox(posts)
 
+const getlike = document.querySelector('.like-button')
+const likeCounter = document.getElementById('like-counter-1')
+const num = parseInt(likeCounter.innerHTML)
+
+function likeIncrease() {
+    likeCounter.innerHTML = num + 1
+    getlike.classList.add('like-button--liked')
+}
+
+likeClick = () => {likeIncrease()}
+
+getlike.addEventListener(('click'), likeClick)
