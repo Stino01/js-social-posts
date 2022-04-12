@@ -102,13 +102,13 @@ function createBox(indice) {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <a class="like-button  js-like-button" data-postid="1">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
                 </div>
                 <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${indice.likes}</b> persone
+                    Piace a <b id="like-counter-${indice.id}" class="js-likes-counter">${indice.likes}</b> persone
                 </div>
             </div> 
         </div>            
@@ -119,15 +119,18 @@ function createBox(indice) {
 
 printBox(posts)
 
-const getlike = document.querySelector('.like-button')
-const likeCounter = document.getElementById('like-counter-1')
-const num = parseInt(likeCounter.innerHTML)
+const getlike = document.getElementsByClassName('like-button')
 
-function likeIncrease() {
-    likeCounter.innerHTML = num + 1
-    getlike.classList.add('like-button--liked')
+for (let i = 0; i < getlike.length; i++) {
+    const likeCounter = document.getElementById(`like-counter-${[i + 1]}`)
+    const num = parseInt(likeCounter.innerHTML)
+
+    likeClick = () => {likeIncrease(likeCounter, num, getlike[i])}
+
+    getlike[i].addEventListener(('click'), likeClick)
 }
 
-likeClick = () => {likeIncrease()}
-
-getlike.addEventListener(('click'), likeClick)
+function likeIncrease(likeCounter, num, x) {
+    likeCounter.innerHTML = num + 1
+    x.classList.add('like-button--liked')
+}
