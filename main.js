@@ -57,8 +57,20 @@ const posts = [
 ];
 
 // **Milestone 1** - Creiamo il nostro array di oggetti che rappresentano ciascun post.
+// **Milestone 2** - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
+//**Milestone 3** - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
 const app = document.getElementById('container')
+
+function getDate() {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let today = day + '-' + month + '-' + year;
+
+    return today
+}
 
 function printBox(value) {
     let item = '';
@@ -79,7 +91,7 @@ function createBox(indice) {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${indice.author.name}</div>
-                    <div class="post-meta__time">4 mesi fa</div>
+                    <div class="post-meta__time">${getDate()}</div>
                 </div>                    
             </div>
         </div>
@@ -107,8 +119,3 @@ function createBox(indice) {
 
 printBox(posts)
 
-// **Milestone 2** - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
-
-
-
-//**Milestone 3** - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
