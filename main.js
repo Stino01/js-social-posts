@@ -87,7 +87,7 @@ function createBox(indice) {
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${indice.author.image}" alt="${indice.author.name}">                    
+                    <img class="profile-pic" src="${indice.author.image}" alt="" onerror="iniziali()">                    
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${indice.author.name}</div>
@@ -134,3 +134,18 @@ function likeIncrease(likeCounter, num, x) {
     likeCounter.innerHTML = num + 1
     x.classList.add('like-button--liked')
 }
+
+//BONUS
+//1. Formattare le date in formato italiano (gg/mm/aaaa) FATTO
+
+//2. Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
+
+const img = document.getElementsByClassName('post-meta__icon')[3]
+function iniziali() {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'error-image');
+    div.innerHTML = 'LF'
+    img.append(div)
+}
+
+//3. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
